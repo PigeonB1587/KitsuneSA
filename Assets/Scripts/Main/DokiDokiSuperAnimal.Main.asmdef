@@ -1,0 +1,16 @@
+{
+    "name": "DokiDokiSuperAnimal.Main",
+    "rootNamespace": "DokiDokiSuperAnimal.Main",
+    "references": [
+        "GUID:09121abf4c59bbc48973180051f35d55"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
