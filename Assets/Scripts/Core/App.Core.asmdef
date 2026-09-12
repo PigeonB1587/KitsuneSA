@@ -1,0 +1,17 @@
+{
+    "name": "App.Core",
+    "rootNamespace": "App.Core",
+    "references": [
+        "GUID:638493a481a34004794a8821ddad2d47",
+        "GUID:0352076a13f5cd74bba46fbfea7ec602"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

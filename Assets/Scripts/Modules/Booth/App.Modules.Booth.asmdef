@@ -1,8 +1,10 @@
 {
-    "name": "DokiDokiSuperAnimal.Main",
-    "rootNamespace": "DokiDokiSuperAnimal.Main",
+    "name": "App.Modules.Booth",
+    "rootNamespace": "App.Modules.Booth",
     "references": [
-        "GUID:09121abf4c59bbc48973180051f35d55"
+        "GUID:31fe604adffabc7468a1b37616d110bc",
+        "GUID:638493a481a34004794a8821ddad2d47",
+        "GUID:0352076a13f5cd74bba46fbfea7ec602"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

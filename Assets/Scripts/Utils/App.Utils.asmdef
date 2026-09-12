@@ -1,14 +1,12 @@
 {
-    "name": "DokiDokiSuperAnimal.Models",
-    "rootNamespace": "DokiDokiSuperAnimal.Models",
+    "name": "App.Utils",
+    "rootNamespace": "App.Utils",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": true,
-    "precompiledReferences": [
-        "Newtonsoft.Json.dll"
-    ],
+    "overrideReferences": false,
+    "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
