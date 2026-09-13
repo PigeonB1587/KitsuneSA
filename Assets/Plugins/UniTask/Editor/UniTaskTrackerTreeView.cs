@@ -1,13 +1,11 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System;
 using UnityEditor.IMGUI.Controls;
-using Cysharp.Threading.Tasks.Internal;
 using System.Text;
 using System.Text.RegularExpressions;
 #if UNITY_6000_2_OR_NEWER
@@ -20,7 +18,7 @@ namespace Cysharp.Threading.Tasks.Editor
 {
     public class UniTaskTrackerViewItem : TreeViewItem
     {
-        static Regex removeHref = new Regex("<a href.+>(.+)</a>", RegexOptions.Compiled);
+        static Regex removeHref = new("<a href.+>(.+)</a>", RegexOptions.Compiled);
 
         public string TaskType { get; set; }
         public string Elapsed { get; set; }

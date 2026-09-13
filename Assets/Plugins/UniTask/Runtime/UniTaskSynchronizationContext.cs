@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 
@@ -9,7 +9,7 @@ namespace Cysharp.Threading.Tasks
         const int MaxArrayLength = 0X7FEFFFFF;
         const int InitialSize = 16;
 
-        static SpinLock gate = new SpinLock(false);
+        static SpinLock gate = new(false);
         static bool dequing = false;
 
         static int actionListCount = 0;

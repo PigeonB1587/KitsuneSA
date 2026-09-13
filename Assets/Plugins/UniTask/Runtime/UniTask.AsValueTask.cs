@@ -1,4 +1,4 @@
-﻿#pragma warning disable 0649
+#pragma warning disable 0649
 
 #if UNITASK_NETCORE || UNITY_2022_3_OR_NEWER
 #define SUPPORT_VALUETASK
@@ -6,9 +6,7 @@
 
 #if SUPPORT_VALUETASK
 
-using System;
 using System.Threading.Tasks;
-using System.Threading.Tasks.Sources;
 
 namespace Cysharp.Threading.Tasks
 {

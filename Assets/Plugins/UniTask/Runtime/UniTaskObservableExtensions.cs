@@ -1,9 +1,9 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
+using Cysharp.Threading.Tasks.Internal;
 using System;
 using System.Runtime.ExceptionServices;
 using System.Threading;
-using Cysharp.Threading.Tasks.Internal;
 
 namespace Cysharp.Threading.Tasks
 {
@@ -291,7 +291,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
     internal class EmptyDisposable : IDisposable
     {
-        public static EmptyDisposable Instance = new EmptyDisposable();
+        public static EmptyDisposable Instance = new();
 
         EmptyDisposable()
         {
@@ -305,7 +305,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
     internal sealed class SingleAssignmentDisposable : IDisposable
     {
-        readonly object gate = new object();
+        readonly object gate = new();
         IDisposable current;
         bool disposed;
 
@@ -363,7 +363,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
     internal sealed class AsyncSubject<T> : IObservable<T>, IObserver<T>
     {
-        object observerLock = new object();
+        object observerLock = new();
 
         T lastValue;
         bool hasValue;
@@ -523,10 +523,10 @@ namespace Cysharp.Threading.Tasks.Internal
         {
             if (isDisposed) throw new ObjectDisposedException("");
         }
-        
+
         class Subscription : IDisposable
         {
-            readonly object gate = new object();
+            readonly object gate = new();
             AsyncSubject<T> parent;
             IObserver<T> unsubscribeTarget;
 
@@ -623,7 +623,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
     internal class EmptyObserver<T> : IObserver<T>
     {
-        public static readonly EmptyObserver<T> Instance = new EmptyObserver<T>();
+        public static readonly EmptyObserver<T> Instance = new();
 
         EmptyObserver()
         {
@@ -645,7 +645,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
     internal class ThrowObserver<T> : IObserver<T>
     {
-        public static readonly ThrowObserver<T> Instance = new ThrowObserver<T>();
+        public static readonly ThrowObserver<T> Instance = new();
 
         ThrowObserver()
         {
@@ -668,7 +668,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
     internal class DisposedObserver<T> : IObserver<T>
     {
-        public static readonly DisposedObserver<T> Instance = new DisposedObserver<T>();
+        public static readonly DisposedObserver<T> Instance = new();
 
         DisposedObserver()
         {
@@ -693,7 +693,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
     internal class ImmutableList<T>
     {
-        public static readonly ImmutableList<T> Empty = new ImmutableList<T>();
+        public static readonly ImmutableList<T> Empty = new();
 
         T[] data;
 

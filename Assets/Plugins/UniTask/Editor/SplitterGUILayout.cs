@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 using System;
 using System.Linq;
@@ -13,31 +13,31 @@ namespace Cysharp.Threading.Tasks.Editor
     {
         static BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static;
 
-        static Lazy<Type> splitterStateType = new Lazy<Type>(() =>
+        static Lazy<Type> splitterStateType = new(() =>
         {
             var type = typeof(EditorWindow).Assembly.GetTypes().First(x => x.FullName == "UnityEditor.SplitterState");
             return type;
         });
 
-        static Lazy<ConstructorInfo> splitterStateCtor = new Lazy<ConstructorInfo>(() =>
+        static Lazy<ConstructorInfo> splitterStateCtor = new(() =>
         {
             var type = splitterStateType.Value;
             return type.GetConstructor(flags, null, new Type[] { typeof(float[]), typeof(int[]), typeof(int[]) }, null);
         });
 
-        static Lazy<Type> splitterGUILayoutType = new Lazy<Type>(() =>
+        static Lazy<Type> splitterGUILayoutType = new(() =>
         {
             var type = typeof(EditorWindow).Assembly.GetTypes().First(x => x.FullName == "UnityEditor.SplitterGUILayout");
             return type;
         });
 
-        static Lazy<MethodInfo> beginVerticalSplit = new Lazy<MethodInfo>(() =>
+        static Lazy<MethodInfo> beginVerticalSplit = new(() =>
         {
             var type = splitterGUILayoutType.Value;
             return type.GetMethod("BeginVerticalSplit", flags, null, new Type[] { splitterStateType.Value, typeof(GUILayoutOption[]) }, null);
         });
 
-        static Lazy<MethodInfo> endVerticalSplit = new Lazy<MethodInfo>(() =>
+        static Lazy<MethodInfo> endVerticalSplit = new(() =>
         {
             var type = splitterGUILayoutType.Value;
             return type.GetMethod("EndVerticalSplit", flags, null, Type.EmptyTypes, null);

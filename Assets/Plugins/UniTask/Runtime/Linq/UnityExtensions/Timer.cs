@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using UnityEngine;
 
@@ -108,7 +108,7 @@ namespace Cysharp.Threading.Tasks.Linq
                 this.updateTiming = updateTiming;
                 this.ignoreTimeScale = ignoreTimeScale;
                 this.cancellationToken = cancellationToken;
-                
+
                 if (cancelImmediately && cancellationToken.CanBeCanceled)
                 {
                     cancellationTokenRegistration = cancellationToken.RegisterWithoutCaptureExecutionContext(state =>
@@ -117,7 +117,7 @@ namespace Cysharp.Threading.Tasks.Linq
                         source.completionSource.TrySetCanceled(source.cancellationToken);
                     }, this);
                 }
-                
+
                 TaskTracker.TrackActiveTask(this, 2);
                 PlayerLoopHelper.AddAction(updateTiming, this);
             }
@@ -162,7 +162,7 @@ namespace Cysharp.Threading.Tasks.Linq
                 {
                     completionSource.TrySetCanceled(cancellationToken);
                     return false;
-                }                
+                }
 
                 if (dueTimePhase)
                 {
@@ -251,7 +251,7 @@ namespace Cysharp.Threading.Tasks.Linq
                 this.dueTimeFrameCount = dueTimeFrameCount;
                 this.periodFrameCount = periodFrameCount;
                 this.cancellationToken = cancellationToken;
-                
+
                 if (cancelImmediately && cancellationToken.CanBeCanceled)
                 {
                     cancellationTokenRegistration = cancellationToken.RegisterWithoutCaptureExecutionContext(state =>

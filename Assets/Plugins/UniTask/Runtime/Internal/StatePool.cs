@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 
@@ -39,7 +39,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
     internal static class StatePool<T1>
     {
-        static readonly ConcurrentQueue<StateTuple<T1>> queue = new ConcurrentQueue<StateTuple<T1>>();
+        static readonly ConcurrentQueue<StateTuple<T1>> queue = new();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static StateTuple<T1> Create(T1 item1)
@@ -80,7 +80,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
     internal static class StatePool<T1, T2>
     {
-        static readonly ConcurrentQueue<StateTuple<T1, T2>> queue = new ConcurrentQueue<StateTuple<T1, T2>>();
+        static readonly ConcurrentQueue<StateTuple<T1, T2>> queue = new();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static StateTuple<T1, T2> Create(T1 item1, T2 item2)
@@ -125,7 +125,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
     internal static class StatePool<T1, T2, T3>
     {
-        static readonly ConcurrentQueue<StateTuple<T1, T2, T3>> queue = new ConcurrentQueue<StateTuple<T1, T2, T3>>();
+        static readonly ConcurrentQueue<StateTuple<T1, T2, T3>> queue = new();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static StateTuple<T1, T2, T3> Create(T1 item1, T2 item2, T3 item3)

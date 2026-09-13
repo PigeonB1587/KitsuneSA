@@ -1,4 +1,4 @@
-﻿using System.Threading;
+using System.Threading;
 
 namespace Cysharp.Threading.Tasks.Linq
 {
@@ -57,7 +57,7 @@ namespace Cysharp.Threading.Tasks.Linq
             public UniTask<bool> MoveNextAsync()
             {
                 if (disposed) return CompletedTasks.False;
-                
+
                 completionSource.Reset();
 
                 if (cancellationToken.IsCancellationRequested)
@@ -85,7 +85,7 @@ namespace Cysharp.Threading.Tasks.Linq
                     completionSource.TrySetCanceled(cancellationToken);
                     return false;
                 }
-                
+
                 if (disposed)
                 {
                     completionSource.TrySetResult(false);

@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 #if UNITY_2018_4 || UNITY_2019_4_OR_NEWER
 #if UNITASK_ASSETBUNDLE_SUPPORT
@@ -196,7 +196,7 @@ namespace Cysharp.Threading.Tasks
                 {
                     return false;
                 }
-                
+
                 if (cancellationToken.IsCancellationRequested)
                 {
                     core.TrySetCanceled(cancellationToken);
@@ -228,14 +228,14 @@ namespace Cysharp.Threading.Tasks
                 cancelImmediately = default;
                 return pool.TryPush(this);
             }
-            
+
             void Continuation(AsyncOperation _)
             {
                 if (completed)
                 {
                     return;
                 }
-                
+
                 completed = true;
                 if (cancellationToken.IsCancellationRequested)
                 {

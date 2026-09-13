@@ -1,4 +1,4 @@
-﻿using Cysharp.Threading.Tasks.Internal;
+using Cysharp.Threading.Tasks.Internal;
 using System;
 using System.Threading;
 
@@ -96,7 +96,7 @@ namespace Cysharp.Threading.Tasks.Linq
                     return;
                 }
 
-                DONE:
+            DONE:
                 state = -2;
                 completionSource.TrySetResult(false);
                 return;
@@ -116,7 +116,7 @@ namespace Cysharp.Threading.Tasks.Linq
                     return;
                 }
 
-                DONE:
+            DONE:
                 Volatile.Write(ref state, -2);
                 completionSource.TrySetResult(false);
             }
@@ -138,7 +138,7 @@ namespace Cysharp.Threading.Tasks.Linq
             {
                 this.enumerator = enumerator;
             }
-            
+
             public void Dispose()
             {
                 var status = core.GetStatus(core.Version);
@@ -146,7 +146,7 @@ namespace Cysharp.Threading.Tasks.Linq
                 {
                     core.TrySetCanceled();
                 }
-            }            
+            }
 
             public void GetResult(short token)
             {

@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 using System;
 using System.Runtime.CompilerServices;
@@ -126,7 +126,7 @@ namespace Cysharp.Threading.Tasks
                 result.cancellationToken = cancellationToken;
                 result.cancelImmediately = cancelImmediately;
                 result.completed = false;
-                
+
                 asyncOperation.completed += result.continuationAction;
 
                 if (cancelImmediately && cancellationToken.CanBeCanceled)
@@ -356,7 +356,7 @@ namespace Cysharp.Threading.Tasks
                 result.cancellationToken = cancellationToken;
                 result.cancelImmediately = cancelImmediately;
                 result.completed = false;
-                
+
                 asyncOperation.completed += result.continuationAction;
 
                 if (cancelImmediately && cancellationToken.CanBeCanceled)
@@ -591,7 +591,7 @@ namespace Cysharp.Threading.Tasks
                 result.cancellationToken = cancellationToken;
                 result.cancelImmediately = cancelImmediately;
                 result.completed = false;
-                
+
                 asyncOperation.completed += result.continuationAction;
 
                 if (cancelImmediately && cancellationToken.CanBeCanceled)
@@ -827,7 +827,7 @@ namespace Cysharp.Threading.Tasks
                 result.cancellationToken = cancellationToken;
                 result.cancelImmediately = cancelImmediately;
                 result.completed = false;
-                
+
                 asyncOperation.completed += result.continuationAction;
 
                 if (cancelImmediately && cancellationToken.CanBeCanceled)
@@ -1078,7 +1078,7 @@ namespace Cysharp.Threading.Tasks
                 result.cancellationToken = cancellationToken;
                 result.cancelImmediately = cancelImmediately;
                 result.completed = false;
-                
+
                 asyncOperation.completed += result.continuationAction;
 
                 if (cancelImmediately && cancellationToken.CanBeCanceled)

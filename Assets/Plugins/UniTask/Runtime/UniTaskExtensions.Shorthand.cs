@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 using System.Collections.Generic;
 
 namespace Cysharp.Threading.Tasks
@@ -6,7 +6,7 @@ namespace Cysharp.Threading.Tasks
     public static partial class UniTaskExtensions
     {
         // shorthand of WhenAll
-    
+
         public static UniTask.Awaiter GetAwaiter(this UniTask[] tasks)
         {
             return UniTask.WhenAll(tasks).GetAwaiter();

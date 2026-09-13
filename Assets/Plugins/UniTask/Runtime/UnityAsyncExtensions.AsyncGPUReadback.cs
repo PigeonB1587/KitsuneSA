@@ -1,4 +1,4 @@
-﻿ #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 using System;
 using System.Threading;
@@ -30,7 +30,7 @@ namespace Cysharp.Threading.Tasks
             if (asyncOperation.done) return UniTask.FromResult(asyncOperation);
             return new UniTask<AsyncGPUReadbackRequest>(AsyncGPUReadbackRequestAwaiterConfiguredSource.Create(asyncOperation, timing, cancellationToken, cancelImmediately, out var token), token);
         }
-        
+
         sealed class AsyncGPUReadbackRequestAwaiterConfiguredSource : IUniTaskSource<AsyncGPUReadbackRequest>, IPlayerLoopItem, ITaskPoolNode<AsyncGPUReadbackRequestAwaiterConfiguredSource>
         {
             static TaskPool<AsyncGPUReadbackRequestAwaiterConfiguredSource> pool;
@@ -67,7 +67,7 @@ namespace Cysharp.Threading.Tasks
                 result.asyncOperation = asyncOperation;
                 result.cancellationToken = cancellationToken;
                 result.cancelImmediately = cancelImmediately;
-                
+
                 if (cancelImmediately && cancellationToken.CanBeCanceled)
                 {
                     result.cancellationTokenRegistration = cancellationToken.RegisterWithoutCaptureExecutionContext(state =>

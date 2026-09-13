@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using UnityEngine;
 
@@ -9,14 +9,14 @@ namespace Cysharp.Threading.Tasks.Internal
         const int InitialSize = 16;
 
         readonly PlayerLoopTiming timing;
-        readonly object runningAndQueueLock = new object();
-        readonly object arrayLock = new object();
+        readonly object runningAndQueueLock = new();
+        readonly object arrayLock = new();
         readonly Action<Exception> unhandledExceptionCallback;
 
         int tail = 0;
         bool running = false;
         IPlayerLoopItem[] loopItems = new IPlayerLoopItem[InitialSize];
-        MinimumQueue<IPlayerLoopItem> waitQueue = new MinimumQueue<IPlayerLoopItem>(InitialSize);
+        MinimumQueue<IPlayerLoopItem> waitQueue = new(InitialSize);
 
 
 
@@ -236,7 +236,7 @@ namespace Cysharp.Threading.Tasks.Internal
                     tail = i; // loop end
                     break; // LOOP END
 
-                    NEXT_LOOP:
+                NEXT_LOOP:
                     continue;
                 }
 

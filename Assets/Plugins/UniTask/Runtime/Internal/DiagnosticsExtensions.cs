@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,6 @@ using System.Security;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using UnityEngine;
 
 namespace Cysharp.Threading.Tasks.Internal
 {
@@ -20,9 +19,9 @@ namespace Cysharp.Threading.Tasks.Internal
     {
         static bool displayFilenames = true;
 
-        static readonly Regex typeBeautifyRegex = new Regex("`.+$", RegexOptions.Compiled);
+        static readonly Regex typeBeautifyRegex = new("`.+$", RegexOptions.Compiled);
 
-        static readonly Dictionary<Type, string> builtInTypeNames = new Dictionary<Type, string>
+        static readonly Dictionary<Type, string> builtInTypeNames = new()
         {
             { typeof(void), "void" },
             { typeof(bool), "bool" },

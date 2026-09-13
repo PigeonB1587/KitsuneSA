@@ -16,7 +16,7 @@ namespace App.Data
 
     public static partial class Utils
     {
-        public static string GetSkin(this CharacterConfig forCharacter, string skin)
+        public static string GetRealSkin(this CharacterConfig forCharacter, string skin)
             => skin == "#BASE_ANIMAL" ? forCharacter.spineBaseSkin : skin;
     }
 }

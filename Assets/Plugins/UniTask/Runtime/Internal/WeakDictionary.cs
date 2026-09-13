@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 using System;
 using System.Collections.Generic;
@@ -85,7 +85,7 @@ namespace Cysharp.Threading.Tasks.Internal
         {
             var nextCapacity = CalculateCapacity(size + 1, loadFactor);
 
-            TRY_ADD_AGAIN:
+        TRY_ADD_AGAIN:
             if (buckets.Length < nextCapacity)
             {
                 // rehash
@@ -117,7 +117,7 @@ namespace Cysharp.Threading.Tasks.Internal
             var h = keyHash;
             var hashIndex = h & (targetBuckets.Length - 1);
 
-            TRY_ADD_AGAIN:
+        TRY_ADD_AGAIN:
             if (targetBuckets[hashIndex] == null)
             {
                 targetBuckets[hashIndex] = new Entry

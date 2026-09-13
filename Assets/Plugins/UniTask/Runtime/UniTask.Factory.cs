@@ -1,8 +1,6 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
-using Cysharp.Threading.Tasks.Internal;
 using System;
-using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
 using System.Threading;
 
@@ -25,7 +23,7 @@ namespace Cysharp.Threading.Tasks
             }
         }
 
-        public static readonly UniTask CompletedTask = new UniTask();
+        public static readonly UniTask CompletedTask = new();
 
         public static UniTask FromException(Exception ex)
         {

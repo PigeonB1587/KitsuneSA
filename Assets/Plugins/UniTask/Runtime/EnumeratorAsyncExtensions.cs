@@ -1,11 +1,10 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
+using Cysharp.Threading.Tasks.Internal;
 using System;
 using System.Collections;
 using System.Reflection;
-using System.Runtime.ExceptionServices;
 using System.Threading;
-using Cysharp.Threading.Tasks.Internal;
 using UnityEngine;
 
 namespace Cysharp.Threading.Tasks
@@ -94,7 +93,7 @@ namespace Cysharp.Threading.Tasks
                 {
                     PlayerLoopHelper.AddAction(timing, result);
                 }
-                
+
                 return result;
             }
 
@@ -250,7 +249,7 @@ namespace Cysharp.Threading.Tasks
 
                     continue;
 
-                    WARN:
+                WARN:
                     // WaitForEndOfFrame, WaitForFixedUpdate, others.
                     UnityEngine.Debug.LogWarning($"yield {current.GetType().Name} is not supported on await IEnumerator or IEnumerator.ToUniTask(), please use ToUniTask(MonoBehaviour coroutineRunner) instead.");
                     yield return null;
@@ -272,7 +271,8 @@ namespace Cysharp.Threading.Tasks
                     {
                         break;
                     }
-                };
+                }
+                ;
             }
 
             static IEnumerator UnwrapWaitAsyncOperation(AsyncOperation asyncOperation)

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -14,7 +13,7 @@ namespace Cysharp.Threading.Tasks
         internal static int MaxPoolSize;
 
         // avoid to use ConcurrentDictionary for safety of WebGL build.
-        static Dictionary<Type, Func<int>> sizes = new Dictionary<Type, Func<int>>();
+        static Dictionary<Type, Func<int>> sizes = new();
 
         static TaskPool()
         {

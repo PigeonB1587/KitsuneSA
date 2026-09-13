@@ -38,45 +38,51 @@ using UnityEngine.Pool;
 #endif
 using UnityEngine.UI;
 
-namespace Spine.Unity {
+namespace Spine.Unity
+{
 
-	/// <summary>
-	/// A minimal MaskableGraphic subclass for rendering multiple submeshes
-	/// at a <see cref="SkeletonGraphic"/>.
-	/// </summary>
-	[RequireComponent(typeof(CanvasRenderer))]
-	public class SkeletonSubmeshGraphic : MaskableGraphic {
-		public override void SetMaterialDirty () { }
-		public override void SetVerticesDirty () { }
-		protected override void OnPopulateMesh (VertexHelper vh) {
-			vh.Clear();
-		}
+    /// <summary>
+    /// A minimal MaskableGraphic subclass for rendering multiple submeshes
+    /// at a <see cref="SkeletonGraphic"/>.
+    /// </summary>
+    [RequireComponent(typeof(CanvasRenderer))]
+    public class SkeletonSubmeshGraphic : MaskableGraphic
+    {
+        public override void SetMaterialDirty() { }
+        public override void SetVerticesDirty() { }
+        protected override void OnPopulateMesh(VertexHelper vh)
+        {
+            vh.Clear();
+        }
 
-		protected override void OnDisable () {
-			base.OnDisable();
-			this.canvasRenderer.cull = true;
-		}
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            this.canvasRenderer.cull = true;
+        }
 
-		protected override void OnEnable () {
-			base.OnEnable();
-			this.canvasRenderer.cull = false;
-		}
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            this.canvasRenderer.cull = false;
+        }
 
 #if HAS_LIST_POOL
-		public Material UpdateModifiedMaterial (Material baseMaterial) {
-			List<IMaterialModifier> modifierComponents = ListPool<IMaterialModifier>.Get();
-			GetComponents<IMaterialModifier>(modifierComponents);
+        public Material UpdateModifiedMaterial(Material baseMaterial)
+        {
+            List<IMaterialModifier> modifierComponents = ListPool<IMaterialModifier>.Get();
+            GetComponents<IMaterialModifier>(modifierComponents);
 
-			Material currentMaterial = baseMaterial;
-			for (int i = 0; i < modifierComponents.Count; i++)
-				currentMaterial = modifierComponents[i].GetModifiedMaterial(currentMaterial);
-			ListPool<IMaterialModifier>.Release(modifierComponents);
-			return currentMaterial;
-		}
+            Material currentMaterial = baseMaterial;
+            for (int i = 0; i < modifierComponents.Count; i++)
+                currentMaterial = modifierComponents[i].GetModifiedMaterial(currentMaterial);
+            ListPool<IMaterialModifier>.Release(modifierComponents);
+            return currentMaterial;
+        }
 #else
 		public Material UpdateModifiedMaterial (Material baseMaterial) {
 			return GetModifiedMaterial(baseMaterial);
 		}
 #endif
-	}
+    }
 }

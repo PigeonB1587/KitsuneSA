@@ -1,10 +1,10 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
+using Cysharp.Threading.Tasks.Internal;
 using System;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using Cysharp.Threading.Tasks.Internal;
 
 namespace Cysharp.Threading.Tasks
 {
@@ -97,7 +97,7 @@ namespace Cysharp.Threading.Tasks
             this.cancellationToken = cancellationToken;
         }
 
-        public Awaiter GetAwaiter() => new Awaiter(playerLoopTiming, cancellationToken);
+        public Awaiter GetAwaiter() => new(playerLoopTiming, cancellationToken);
 
         public struct Awaiter : ICriticalNotifyCompletion
         {
@@ -189,7 +189,7 @@ namespace Cysharp.Threading.Tasks
 
     public struct SwitchToThreadPoolAwaitable
     {
-        public Awaiter GetAwaiter() => new Awaiter();
+        public Awaiter GetAwaiter() => new();
 
         public struct Awaiter : ICriticalNotifyCompletion
         {
@@ -264,7 +264,7 @@ namespace Cysharp.Threading.Tasks
 
     public struct SwitchToTaskPoolAwaitable
     {
-        public Awaiter GetAwaiter() => new Awaiter();
+        public Awaiter GetAwaiter() => new();
 
         public struct Awaiter : ICriticalNotifyCompletion
         {
@@ -302,7 +302,7 @@ namespace Cysharp.Threading.Tasks
             this.cancellationToken = cancellationToken;
         }
 
-        public Awaiter GetAwaiter() => new Awaiter(synchronizationContext, cancellationToken);
+        public Awaiter GetAwaiter() => new(synchronizationContext, cancellationToken);
 
         public struct Awaiter : ICriticalNotifyCompletion
         {

@@ -1,4 +1,4 @@
-﻿using Cysharp.Threading.Tasks.Internal;
+using Cysharp.Threading.Tasks.Internal;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -67,7 +67,7 @@ namespace Cysharp.Threading.Tasks.Linq
                 this.equalityComparer = equalityComparer;
                 this.cancellationToken = cancellationToken;
                 this.first = true;
-                
+
                 if (cancelImmediately && cancellationToken.CanBeCanceled)
                 {
                     cancellationTokenRegistration = cancellationToken.RegisterWithoutCaptureExecutionContext(state =>
@@ -76,7 +76,7 @@ namespace Cysharp.Threading.Tasks.Linq
                         source.completionSource.TrySetCanceled(source.cancellationToken);
                     }, this);
                 }
-                
+
                 TaskTracker.TrackActiveTask(this, 2);
                 PlayerLoopHelper.AddAction(monitorTiming, this);
             }
@@ -88,7 +88,7 @@ namespace Cysharp.Threading.Tasks.Linq
                 if (disposed) return CompletedTasks.False;
 
                 completionSource.Reset();
-                
+
                 if (cancellationToken.IsCancellationRequested)
                 {
                     completionSource.TrySetCanceled(cancellationToken);
@@ -122,13 +122,13 @@ namespace Cysharp.Threading.Tasks.Linq
 
             public bool MoveNext()
             {
-                if (disposed || targetAsUnityObject == null) 
+                if (disposed || targetAsUnityObject == null)
                 {
                     completionSource.TrySetResult(false);
                     DisposeAsync().Forget();
                     return false;
                 }
-                
+
                 if (cancellationToken.IsCancellationRequested)
                 {
                     completionSource.TrySetCanceled(cancellationToken);
@@ -199,7 +199,7 @@ namespace Cysharp.Threading.Tasks.Linq
                 this.equalityComparer = equalityComparer;
                 this.cancellationToken = cancellationToken;
                 this.first = true;
-                
+
                 if (cancelImmediately && cancellationToken.CanBeCanceled)
                 {
                     cancellationTokenRegistration = cancellationToken.RegisterWithoutCaptureExecutionContext(state =>
@@ -208,7 +208,7 @@ namespace Cysharp.Threading.Tasks.Linq
                         source.completionSource.TrySetCanceled(source.cancellationToken);
                     }, this);
                 }
-                
+
                 TaskTracker.TrackActiveTask(this, 2);
                 PlayerLoopHelper.AddAction(monitorTiming, this);
             }
@@ -220,13 +220,13 @@ namespace Cysharp.Threading.Tasks.Linq
                 if (disposed) return CompletedTasks.False;
 
                 completionSource.Reset();
-                
+
                 if (cancellationToken.IsCancellationRequested)
                 {
                     completionSource.TrySetCanceled(cancellationToken);
                     return new UniTask<bool>(this, completionSource.Version);
                 }
-                
+
                 if (first)
                 {
                     first = false;

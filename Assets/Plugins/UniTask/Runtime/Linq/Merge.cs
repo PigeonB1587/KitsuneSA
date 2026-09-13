@@ -1,8 +1,8 @@
+using Cysharp.Threading.Tasks.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Cysharp.Threading.Tasks.Internal;
 
 namespace Cysharp.Threading.Tasks.Linq
 {
@@ -13,7 +13,7 @@ namespace Cysharp.Threading.Tasks.Linq
             Error.ThrowArgumentNullException(first, nameof(first));
             Error.ThrowArgumentNullException(second, nameof(second));
 
-            return new Merge<T>(new [] { first, second });
+            return new Merge<T>(new[] { first, second });
         }
 
         public static IUniTaskAsyncEnumerable<T> Merge<T>(this IUniTaskAsyncEnumerable<T> first, IUniTaskAsyncEnumerable<T> second, IUniTaskAsyncEnumerable<T> third)
@@ -68,7 +68,7 @@ namespace Cysharp.Threading.Tasks.Linq
             readonly int length;
             readonly IUniTaskAsyncEnumerator<T>[] enumerators;
             readonly MergeSourceState[] states;
-            readonly Queue<(T, Exception, bool)> queuedResult = new Queue<(T, Exception, bool)>();
+            readonly Queue<(T, Exception, bool)> queuedResult = new();
             readonly CancellationToken cancellationToken;
 
             int moveNextCompleted;
@@ -84,7 +84,7 @@ namespace Cysharp.Threading.Tasks.Linq
                 for (var i = 0; i < length; i++)
                 {
                     enumerators[i] = sources[i].GetAsyncEnumerator(cancellationToken);
-                    states[i] = (int)MergeSourceState.Pending;;
+                    states[i] = (int)MergeSourceState.Pending; ;
                 }
             }
 

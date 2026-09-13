@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 using System;
 using System.Threading;
@@ -13,7 +13,7 @@ namespace Cysharp.Threading.Tasks
 
     public sealed class TimeoutController : IDisposable
     {
-        readonly static Action<object> CancelCancellationTokenSourceStateDelegate = new Action<object>(CancelCancellationTokenSourceState);
+        readonly static Action<object> CancelCancellationTokenSourceStateDelegate = new(CancelCancellationTokenSourceState);
 
         static void CancelCancellationTokenSourceState(object state)
         {

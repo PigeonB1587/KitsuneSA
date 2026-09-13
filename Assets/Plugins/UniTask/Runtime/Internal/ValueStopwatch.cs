@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 
 namespace Cysharp.Threading.Tasks.Internal
@@ -9,7 +9,7 @@ namespace Cysharp.Threading.Tasks.Internal
 
         readonly long startTimestamp;
 
-        public static ValueStopwatch StartNew() => new ValueStopwatch(Stopwatch.GetTimestamp());
+        public static ValueStopwatch StartNew() => new(Stopwatch.GetTimestamp());
 
         ValueStopwatch(long startTimestamp)
         {

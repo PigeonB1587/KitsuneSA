@@ -1,4 +1,4 @@
-﻿using Cysharp.Threading.Tasks.Internal;
+using Cysharp.Threading.Tasks.Internal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -344,7 +344,7 @@ namespace Cysharp.Threading.Tasks.Linq
 
         class Lookup<TKey, TElement> : ILookup<TKey, TElement>
         {
-            static readonly Lookup<TKey, TElement> empty = new Lookup<TKey, TElement>(new Dictionary<TKey, Grouping<TKey, TElement>>());
+            static readonly Lookup<TKey, TElement> empty = new(new Dictionary<TKey, Grouping<TKey, TElement>>());
 
             // original lookup keeps order but this impl does not(dictionary not guarantee)
             readonly Dictionary<TKey, Grouping<TKey, TElement>> dict;
