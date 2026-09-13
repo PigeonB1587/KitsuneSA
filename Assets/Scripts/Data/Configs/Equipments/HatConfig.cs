@@ -3,10 +3,8 @@ using System.Collections.Generic;
 namespace App.Data
 {
     [System.Serializable]
-    public class HatConfig : BaseItemConfig
+    public class HatConfig : BaseEquipmentConfig<HatSpinePart>
     {
-        public List<HatSpinePart> spineParts { get; set; } = new();
-        public bool useCosmeticsAnimTrack { get; set; }
         public bool hideHair1 { get; set; }
         public bool hideHair2 { get; set; }
     }
@@ -16,6 +14,7 @@ namespace App.Data
     {
         public string regionCut { get; set; }
     }
+
     public static partial class Utils
     {
         public static string GetRegion(this HatSpinePart hatSpinePart, CharacterConfig forCharacter) =>
